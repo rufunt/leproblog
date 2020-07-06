@@ -3,6 +3,15 @@
 <p>
   <%= @result['content'] %><br><hr>
   Добавлено <%= @result['created_date'] %>
+</p>
+<br>
 
-
+<h4>Comments:</h4>
+<p>
+  <form action="/details/<%= @result['id']%>" method="POST">
+    <div class="form-group">
+      <textarea class="form-control" rows="3" name="comment" placeholder="Type your comment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-danger">Add comment</button>
+  </form>
 </p>
