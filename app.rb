@@ -65,7 +65,22 @@ end
 post '/details/:post_id' do
   post_id = params[:post_id]
 
-  content = params[:content]
+  @content = params[:content]
+  
+  if @content.length < 1
+    @error = "Type comment text"
+    redirect to('/details/'+ post_id)
+  end
 
-  erb "Комментарий к посту #{post_id}: #{content}" 
+  @db.execute 'insert into Comments 
+    (
+      content, 
+      created_date,
+      post_id
+    ) values 
+    (
+      ?, datetime(), ?
+    )', [@content, post_id]
+
+    redirect to('/details/'+ post_id) 
 end
