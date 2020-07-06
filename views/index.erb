@@ -1,1 +1,20 @@
 <h3>Last posts:<h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Post</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |row|%>
+      <tr>
+        <th scope="row"><%= row['id'] %></th>
+        <td><%= row['content'] %></td>
+        <td><%=row['created_date'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
