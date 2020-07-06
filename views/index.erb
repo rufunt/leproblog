@@ -6,6 +6,7 @@
       <th scope="col">№</th>
       <th scope="col">Post</th>
       <th scope="col">Date</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,7 @@
         <th scope="row"><%= row['id'] %></th>
         <td><%= row['content'] %></td>
         <td><%=row['created_date'] %></td>
+        <td><a href="/post/<%= row['id'] %>">Comments</a></td>
       </tr>
     <% end %>
   </tbody>
