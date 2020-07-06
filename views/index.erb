@@ -15,7 +15,7 @@
         <th scope="row"><%= row['id'] %></th>
         <td><%= row['content'] %></td>
         <td><%=row['created_date'] %></td>
-        <td><a href="/post/<%= row['id'] %>">Comments</a></td>
+        <td><a href="/details/<%= row['id'] %>">Comments</a></td>
       </tr>
     <% end %>
   </tbody>
