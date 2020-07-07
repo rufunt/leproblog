@@ -58,6 +58,8 @@ get '/details/:post_id' do
 
   posts = @db.execute 'select * from posts where id = ?', [post_id]
   @result = posts[0]
+
+  @comments = @db.execute 'select * from comments where post_id = ?', [post_id]
   
   erb :details
 end
@@ -68,7 +70,7 @@ post '/details/:post_id' do
   @content = params[:content]
   
   if @content.length < 1
-    @error = "Type comment text"
+    
     redirect to('/details/'+ post_id)
   end
 

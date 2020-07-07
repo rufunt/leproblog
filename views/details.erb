@@ -15,3 +15,11 @@
     <button type="submit" class="btn btn-danger">Add comment</button>
   </form>
 </p>
+
+<h4>Комментарии:</h4>
+  <% @comments.each do |row|%>
+    <br>
+    <h5><%= row['content'] %></h5>
+    <span><%= row['created_date'] %></span><hr>
+    
+  <% end %>
